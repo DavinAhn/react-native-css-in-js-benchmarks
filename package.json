@@ -1,0 +1,40 @@
+{
+  "name": "react_native_css_in_js_benchmarks",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "1.12.1",
+    "@react-native-community/picker": "1.8.1",
+    "fela": "11.6.1",
+    "fela-native": "11.6.1",
+    "fela-tools": "11.6.1",
+    "glamorous-native": "2.0.0",
+    "hoist-non-react-statics": "3.3.2",
+    "react": "16.13.1",
+    "react-fela": "11.6.1",
+    "react-native": "0.63.4",
+    "styled-components": "5.2.3",
+    "usertiming": "0.1.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/runtime": "^7.13.10",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.23.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.65.2",
+    "react-test-renderer": "17.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
