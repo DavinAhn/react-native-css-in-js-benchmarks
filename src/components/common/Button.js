@@ -1,81 +1,37 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
   Text,
   View,
-  ViewPropTypes,
   TouchableOpacity,
 } from 'react-native';
 
 import * as colors from 'utils/colors';
 
-const styles = StyleSheet.create({
-  container: {},
-  button: {
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: 6,
-    borderWidth: 1,
-  },
-  text: {
-    minHeight: 20,
-    textAlign: 'center',
-  },
-});
-
-const Button = ({
-  backgroundColor,
-  bold,
+export const Button = ({
   children,
-  color,
-  containerStyle,
-  dark,
   disabled,
   loading,
+  reverse,
+  testID,
   onPress,
-  outline,
-  textStyle,
-  touchableStyle,
-  ...props
 }) => {
-  const _textColor = outline ? color : dark ? colors.white : colors.black;
-  const _disabled = loading || disabled || !onPress;
+  const isDisabled = loading || disabled || !onPress;
+  const styles = getStyles(colors.primaryColor, reverse, isDisabled);
 
   return (
-    <View
-      style={[
-        styles.container,
-        containerStyle,
-        { opacity: _disabled ? 0.5 : 1 },
-      ]}>
+    <View style={styles.container}>
       <TouchableOpacity
         activeOpacity={0.5}
-        disabled={_disabled}
-        onPress={onPress}
-        style={[
-          styles.button,
-          {
-            backgroundColor:
-              backgroundColor || (outline ? colors.transparent : color),
-            borderColor: outline ? color : colors.transparent,
-          },
-          touchableStyle,
-        ]}
-        {...props}>
+        disabled={isDisabled}
+        style={styles.button}
+        testID={testID}
+        onPress={onPress}>
         {loading ? (
-          <ActivityIndicator animating color={_textColor} />
+          <ActivityIndicator animating color={styles.spinner.color} />
         ) : typeof children === 'string' ? (
-          <Text
-            style={[
-              styles.text,
-              { color: _textColor },
-              textStyle,
-              bold && { fontWeight: 'bold' },
-            ]}>
-            {children}
-          </Text>
+          <Text style={styles.text}>{children}</Text>
         ) : (
           children
         )}
@@ -84,24 +40,25 @@ const Button = ({
   );
 };
 
-Button.defaultProps = {
-  color: colors.purple,
-  dark: true,
-};
-
-Button.propTypes = {
-  backgroundColor: PropTypes.string,
-  bold: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  color: PropTypes.string,
-  containerStyle: ViewPropTypes.style,
-  dark: PropTypes.bool,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  onPress: PropTypes.func,
-  outline: PropTypes.bool,
-  textStyle: (Text.propTypes || {}).style,
-  touchableStyle: ViewPropTypes.style,
-};
-
-export { Button };
+const getStyles = StyleSheet.create((color, reverse, disabled) => ({
+  container: {
+    marginBottom: 10,
+    opacity: disabled ? 0.5 : 1,
+  },
+  spinner: {
+    color: reverse ? color : colors.white,
+  },
+  button: {
+    backgroundColor: reverse ? colors.transparent : color,
+    borderColor: reverse ? color : colors.transparent,
+    borderRadius: 6,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  text: {
+    color: reverse ? color : colors.white,
+    minHeight: 20,
+    textAlign: 'center',
+  },
+}));

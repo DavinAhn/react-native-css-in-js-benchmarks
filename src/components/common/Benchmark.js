@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { RUN_COUNT } from 'utils/config';
 import {
   avg,
   canUsePerformanceTool,
@@ -80,7 +81,7 @@ export class Benchmark extends React.PureComponent {
 
   mounted = false;
 
-  runRenderTest = async (runCount = 10) => {
+  runRenderTest = async (runCount = RUN_COUNT) => {
     if (!canUsePerformanceTool(true)) {
       if (this.props.onGetRenderTime) {
         this.props.onGetRenderTime(0);

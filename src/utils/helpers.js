@@ -1,4 +1,5 @@
 import { Alert, Dimensions } from 'react-native';
+import { ROW_COUNT } from 'utils/config';
 
 const isDebuggingRemotely = !global.nativeCallSyncHook;
 
@@ -14,7 +15,7 @@ export function toPercent(value, fractionDigits = precision) {
   return `${(value * 100).toFixed(fractionDigits).toString()}%`;
 }
 
-export function generateTable(size = 1000) {
+export function generateTable(size = ROW_COUNT) {
   const columns = columnsThatFitDevice;
   const rows = Math.ceil(size / columns);
 
@@ -49,7 +50,7 @@ export function getCellColor(opacity = 1) {
 }
 
 export function canUsePerformanceTool(alert = false) {
-  if (!isDebuggingRemotely) {
+  if (alert && !isDebuggingRemotely) {
     Alert.alert(
       'Missing UserTiming API',
       'Performance tools not available. Please try enabling Remote JS Debugging to be able to run the benchmarks.',

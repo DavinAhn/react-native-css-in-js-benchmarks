@@ -11,7 +11,7 @@ import { TableComponent as StyledComponentsDecoupledCellTable } from 'components
 import { TableComponent as StyledComponentsInlineTable } from 'components/benchmarks/styled-components/inline';
 import { TableComponent as StyledComponentsSimpleTable } from 'components/benchmarks/styled-components/simple';
 
-export const benchmarks = [
+export const benchmarkMap = [
   FelaInlineTable,
   FelaPrimitivesTable,
   FelaSimpleTable,
