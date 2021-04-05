@@ -1,12 +1,11 @@
 import { StyleSheet } from 'fela-tools';
 import React from 'react';
 import { useFela } from 'react-fela';
-import { ScrollView, Text, View, ViewPropTypes } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 import { wrapRenderer } from 'components/benchmarks/fela/helpers';
 import * as colors from 'utils/colors';
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const rules = StyleSheet.create({
   table: {},
@@ -28,7 +27,6 @@ const _TableComponent = ({ table, ...props }) => {
   const { renderer } = useFela();
   return (
     <ScrollView
-      removeClippedSubviews={false}
       {...props}
       style={renderer.renderRule(rules.table, props.style)}>
       {table.map((row, rowIndex) => (
@@ -52,11 +50,6 @@ const _TableComponent = ({ table, ...props }) => {
 
 _TableComponent.key = 'fela-simple-table';
 _TableComponent.title = 'Fela (Simple)';
-
-_TableComponent.propTypes = {
-  style: ViewPropTypes.style,
-  table: TablePropTypes.isRequired,
-};
 
 const TableComponent = wrapRenderer(_TableComponent);
 export { TableComponent };

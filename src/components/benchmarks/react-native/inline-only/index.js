@@ -1,12 +1,11 @@
 import React from 'react';
-import { ScrollView, Text, View, ViewPropTypes } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 import * as colors from 'utils/colors';
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const TableComponent = ({ table, ...props }) => (
-  <ScrollView removeClippedSubviews={false} {...props} style={props.style}>
+  <ScrollView {...props} style={props.style}>
     {table.map((row, rowIndex) => (
       <View
         key={`row-${rowIndex}`}
@@ -38,10 +37,5 @@ const TableComponent = ({ table, ...props }) => (
 
 TableComponent.key = 'react-native-inline-only-table';
 TableComponent.title = 'React Native (Inline Only)';
-
-TableComponent.propTypes = {
-  style: ViewPropTypes.style,
-  table: TablePropTypes.isRequired,
-};
 
 export { TableComponent };

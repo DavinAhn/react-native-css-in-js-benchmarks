@@ -2,7 +2,6 @@ import React from 'react';
 import glamorous from 'glamorous-native';
 
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const Table = glamorous.scrollView();
 
@@ -26,7 +25,7 @@ const Text = glamorous.text({
 });
 
 const TableComponent = ({ table, ...props }) => (
-  <Table removeClippedSubviews={false} {...props}>
+  <Table {...props}>
     {table.map((row, rowIndex) => (
       <Row key={`row-${rowIndex}`}>
         {row.map((value, columnIndex) => (
@@ -43,9 +42,5 @@ const TableComponent = ({ table, ...props }) => (
 
 TableComponent.key = 'glamorous-simple-table';
 TableComponent.title = 'Glamorous (Simple)';
-
-TableComponent.propTypes = {
-  table: TablePropTypes.isRequired,
-};
 
 export { TableComponent };

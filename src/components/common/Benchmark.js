@@ -126,6 +126,12 @@ export class Benchmark extends React.PureComponent {
       return null;
     }
 
-    return <TableComponent table={table} testID="benchmarkTable" />;
+    return (
+      <TableComponent
+        removeClippedSubviews={false}
+        table={table}
+        testID="benchmarkTable"
+      />
+    );
   }
 }

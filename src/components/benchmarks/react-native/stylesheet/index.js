@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  ViewPropTypes,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import * as colors from 'utils/colors';
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const styles = StyleSheet.create({
   table: {},
@@ -27,10 +20,7 @@ const styles = StyleSheet.create({
 });
 
 const TableComponent = ({ table, ...props }) => (
-  <ScrollView
-    removeClippedSubviews={false}
-    {...props}
-    style={[styles.table, props.style]}>
+  <ScrollView {...props} style={[styles.table, props.style]}>
     {table.map((row, rowIndex) => (
       <View key={`row-${rowIndex}`} style={styles.row}>
         {row.map((value, columnIndex) => (
@@ -54,10 +44,5 @@ const TableComponent = ({ table, ...props }) => (
 
 TableComponent.key = 'react-native-stylesheet-table';
 TableComponent.title = 'React Native (StyleSheet)';
-
-TableComponent.propTypes = {
-  style: ViewPropTypes.style,
-  table: TablePropTypes.isRequired,
-};
 
 export { TableComponent };

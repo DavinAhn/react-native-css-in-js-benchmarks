@@ -1,11 +1,10 @@
 import React from 'react';
 import { createComponent } from 'react-fela';
-import { ScrollView, Text, View, ViewPropTypes } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 import { wrapRenderer } from 'components/benchmarks/fela/helpers';
 import * as colors from 'utils/colors';
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const Table = createComponent(() => ({}), ScrollView);
 
@@ -34,7 +33,7 @@ const CellText = createComponent(
 );
 
 const _TableComponent = ({ table, ...props }) => (
-  <Table removeClippedSubviews={false} {...props} style={props.style}>
+  <Table {...props} style={props.style}>
     {table.map((row, rowIndex) => (
       <Row key={`row-${rowIndex}`}>
         {row.map((value, columnIndex) => (
@@ -51,11 +50,6 @@ const _TableComponent = ({ table, ...props }) => (
 
 _TableComponent.key = 'fela-primitives-table';
 _TableComponent.title = 'Fela (Primitives)';
-
-_TableComponent.propTypes = {
-  style: ViewPropTypes.style,
-  table: TablePropTypes.isRequired,
-};
 
 const TableComponent = wrapRenderer(_TableComponent);
 export { TableComponent };

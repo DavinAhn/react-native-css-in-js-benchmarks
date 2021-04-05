@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { getCellColor, toPercent } from 'utils/helpers';
-import { TablePropTypes } from 'utils/types';
 
 const Table = styled.ScrollView``;
 
@@ -21,7 +20,7 @@ const Text = styled.Text`
 `;
 
 const TableComponent = ({ table, ...props }) => (
-  <Table removeClippedSubviews={false} {...props}>
+  <Table {...props}>
     {table.map((row, rowIndex) => (
       <Row key={`row-${rowIndex}`}>
         {row.map((value, columnIndex) => (
@@ -38,9 +37,5 @@ const TableComponent = ({ table, ...props }) => (
 
 TableComponent.key = 'styled-components-inline-table';
 TableComponent.title = 'Styled Components (Inline)';
-
-TableComponent.propTypes = {
-  table: TablePropTypes.isRequired,
-};
 
 export { TableComponent };

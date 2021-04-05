@@ -64,7 +64,6 @@ const _TableComponent = ({ table, ...props }) => {
     <Table
       data={table}
       keyExtractor={keyExtractor}
-      removeClippedSubviews={false}
       renderItem={renderRow}
       {...props}
       style={props.style}

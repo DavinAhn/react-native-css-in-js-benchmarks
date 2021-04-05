@@ -58,7 +58,6 @@ const TableComponent = ({ table, ...props }) => {
     <FlatList
       data={table}
       keyExtractor={keyExtractor}
-      removeClippedSubviews={false}
       renderItem={renderRow}
       {...props}
       style={[styles.table, props.style]}
