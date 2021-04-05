@@ -33,6 +33,8 @@ See [RESULTS.md](RESULTS.md) for the benchmark results.
 - [react-native](https://github.com/facebook/react-native)
 - [styled-components](https://github.com/styled-components/styled-components)
 
+<img alt="React Native running CSS in JS benchmarks on iOS simulator" src="https://user-images.githubusercontent.com/619186/33778451-cb70f6dc-dc2f-11e7-91b0-ebc78ea2644a.gif" height="600" />
+
 ### Inspiration
 
 The idea and some code pieces are heavily inspired by [A-gambit/CSS-IN-JS-Benchmarks](https://github.com/A-gambit/CSS-IN-JS-Benchmarks), which benchmarks were made for React Web.
@@ -43,3 +45,7 @@ The idea and some code pieces are heavily inspired by [A-gambit/CSS-IN-JS-Benchm
 - Run `yarn` or `npm install`
 - Run `react-native run-ios`
 - Use the app as usual
+
+### Original author
+
+Bruno Lemos (follow [@brunolemos](https://twitter.com/brunolemos) on twitter)
