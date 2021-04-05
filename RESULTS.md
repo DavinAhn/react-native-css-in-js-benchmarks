@@ -1,6 +1,11 @@
 # CSS in JS Benchmarks
 ## for React Native
 
+- MacBook Pro (16inch, 2019) / 2.3GHz 8-core i9 / 32GB RAM
+- iPhone 11 Simulator (iOS 13.5)
+- React Native 0.63.4
+- 1,000 components.
+- Measure 1 mount time, rerender 10 times.
 
 ### Results (based on ScrollView)
 
