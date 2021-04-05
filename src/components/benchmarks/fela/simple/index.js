@@ -1,12 +1,12 @@
-import React from 'react';
-import { ScrollView, Text, View, ViewPropTypes } from 'react-native';
 import { StyleSheet } from 'fela-tools';
+import React from 'react';
+import { useFela } from 'react-fela';
+import { ScrollView, Text, View, ViewPropTypes } from 'react-native';
 
 import { wrapRenderer } from 'components/benchmarks/fela/helpers';
 import * as colors from 'utils/colors';
 import { getCellColor, toPercent } from 'utils/helpers';
 import { TablePropTypes } from 'utils/types';
-import { useFela } from 'react-fela';
 
 const rules = StyleSheet.create({
   table: {},
